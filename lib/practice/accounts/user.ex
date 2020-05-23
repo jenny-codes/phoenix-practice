@@ -3,11 +3,13 @@ defmodule Practice.Accounts.User do
   import Ecto.Changeset
 
   alias Practice.Accounts.Credential
+  alias Practice.CMS.Author
 
   schema "users" do
     field :name, :string
     field :username, :string
     has_one :credential, Credential
+    has_one :author, Author
 
     timestamps()
   end

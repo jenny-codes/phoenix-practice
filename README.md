@@ -13,6 +13,17 @@ email:string:unique user_id:references:users
 # enforce association at migration file: on_delete: :delete_all (default is :nothing)
 
 $ mix ecto.migrate
+
+# the `--web` option is to add a /cms namespace for web modules
+$ mix phx.gen.html CMS Page pages title:string body:text \
+views:integer --web CMS
+
+$ mix phx.gen.context CMS Author authors bio:text role:string \
+genre:string user_id:references:users:unique
+
+$ mix ecto.gen.migration add_author_id_to_pages
+
+
 ```
 
 -----

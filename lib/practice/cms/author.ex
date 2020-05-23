@@ -1,0 +1,24 @@
+defmodule Practice.CMS.Author do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  alias Practice.CMS.Page
+
+  schema "authors" do
+    field :bio, :string
+    field :genre, :string
+    field :role, :string
+    belongs_to :user, Practice.Accounts.User
+    has_many :pages, Page
+
+    timestamps()
+  end
+
+  @doc false
+  def changeset(author, attrs) do
+    author
+    |> cast(attrs, [:bio, :role, :genre])
+    |> validate_required([:bio, :role, :genre])
+    |> unique_constraint(:user_id)
+  end
+end

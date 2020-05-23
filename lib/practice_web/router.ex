@@ -26,6 +26,12 @@ defmodule PracticeWeb.Router do
       singleton: true
   end
 
+  scope "/cms", PracticeWeb.CMS, as: :cms do
+    pipe_through [:browser, :authenticate_user]
+
+    resources "/pages", PageController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PracticeWeb do
   #   pipe_through :api
