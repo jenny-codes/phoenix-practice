@@ -3,6 +3,11 @@
 <ul>
 
   <li>
+    <strong>Author:</strong>
+    <%= author_name(@page) %>
+  </li>
+
+  <li>
     <strong>Title:</strong>
     <%= @page.title %>
   </li>
