@@ -2,7 +2,7 @@ defmodule PracticeWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", PracticeWeb.RoomChannel
+  channel "room:*", PracticeWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
